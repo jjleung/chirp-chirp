@@ -16,9 +16,23 @@ var counter = {
 }
 
 function countLetters(counter, sample_text){
-  // FIX ME
-}
 
+  if(!sample_text){
+    // console.log(counter); 
+    return;
+  }
+  let samp = sample_text.split("");
+  let letter = samp[0].toLowerCase();
+  if(counter[letter] || counter[letter] === 0){
+    counter[letter]++;
+  }
+
+  samp.splice(0,1);
+  sample_text = samp.join("");
+  countLetters(counter, sample_text);
+  return counter;
+}
+console.log("cons: ",countLetters(counter, sample_text));
 $(document).ready(function(){
   countLetters(counter, sample_text);
   $("#result").html(JSON.stringify(counter));

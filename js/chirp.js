@@ -1,5 +1,10 @@
 function chirp(n){
-  // FIX ME
+
+  if(n === 0){
+    return ' ';
+  }
+  var str = 'chirp ';
+  return str + chirp(--n);
 }
 
 $(document).ready(function(){
